@@ -6,6 +6,8 @@ public class FollowTheMouse : MonoBehaviour
 {
     SpriteRenderer sr;
 
+    public GameObject prefab;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -21,6 +23,11 @@ public class FollowTheMouse : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             sr.color = Random.ColorHSV();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(prefab, transform.position, transform.rotation);
         }
     }
 }
